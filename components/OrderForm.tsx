@@ -5,12 +5,14 @@ import { useState, type FormEvent } from "react";
 import { formatDate } from "@/lib/format";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { ProductPicker } from "@/components/ProductPicker";
 
 export function OrderForm() {
   const [customerName, setCustomerName] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
   const [deliveryDate, setDeliveryDate] = useState("");
   const [confirmation, setConfirmation] = useState<string | null>(null);
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -73,12 +75,16 @@ export function OrderForm() {
         </div>
       </Card>
 
-      {/* // ProductPicker se integra en vivo durante la Sesión 1 del Módulo 3 — no implementes el selector. */}
-      <Card className="border-dashed bg-slate-50">
-        <p className="text-sm font-semibold text-slate-900">Productos del pedido</p>
-        <p className="mt-2 text-sm text-slate-600">
-          El selector de productos se construirá durante la sesión en vivo.
-        </p>
+      <Card>
+        <div className="mb-4">
+          <p className="text-sm font-semibold text-slate-900">Productos del pedido</p>
+          <p className="mt-1 text-sm text-slate-600">Selecciona un producto del catálogo.</p>
+        </div>
+        <ProductPicker
+          value={selectedProductId}
+          onChange={setSelectedProductId}
+          placeholder="Buscar producto…"
+        />
       </Card>
 
       {confirmation && (

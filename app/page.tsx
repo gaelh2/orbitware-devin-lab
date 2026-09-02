@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { ProductTable } from "@/components/ProductTable";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function HomePage() {
   return (
@@ -15,12 +16,15 @@ export default function HomePage() {
             Base de laboratorio y referencia de convenciones para el Módulo 3, Sesión 1.
           </p>
         </div>
-        <Link
-          href="/pedidos"
-          className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-blue-600"
-        >
-          Crear pedido
-        </Link>
+        <div className="flex shrink-0 gap-3">
+          <Link
+            href="/pedidos"
+            className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-blue-600"
+          >
+            Crear pedido
+          </Link>
+          <ThemeToggle />
+        </div>
       </header>
       <ProductTable />
     </main>
