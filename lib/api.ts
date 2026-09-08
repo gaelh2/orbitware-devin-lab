@@ -25,12 +25,13 @@ export function setApiFailure(enabled: boolean): void {
 export async function searchProducts(query: string): Promise<Product[]> {
   await simulateRequest();
   const normalizedQuery = query.trim().toLocaleLowerCase("es");
+  const availableProducts = products.filter(({ stock }) => stock > 0);
 
   if (!normalizedQuery) {
-    return [...products];
+    return [...availableProducts];
   }
 
-  return products.filter(
+  return availableProducts.filter(
     ({ name, sku }) =>
       name.toLocaleLowerCase("es").includes(normalizedQuery) ||
       sku.toLocaleLowerCase("es").includes(normalizedQuery),

@@ -2,7 +2,7 @@ export type Product = {
   id: string;
   name: string;
   sku: string;
-  price: number;
+  price: number | string;
   stock: number;
 };
 
@@ -20,3 +20,7 @@ export type Order = {
   status: "draft" | "confirmed" | "shipped" | "cancelled";
   lines: OrderLine[];
 };
+
+declare module "@/lib/format" {
+  export function formatCurrency(amount: any): string;
+}
