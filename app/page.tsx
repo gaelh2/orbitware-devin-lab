@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { ProductTable } from "@/components/ProductTable";
+import { QuickAdd } from "@/components/QuickAdd";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function HomePage() {
@@ -27,6 +28,7 @@ export default function HomePage() {
         </div>
       </header>
       <ProductTable />
+      <QuickAdd />
     </main>
   );
 }

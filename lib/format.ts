@@ -1,6 +1,6 @@
-const currencyFormatter = new Intl.NumberFormat("es-ES", {
+const currencyFormatter = new Intl.NumberFormat("es-MX", {
   style: "currency",
-  currency: "EUR",
+  currency: "MXN",
 });
 
 const dateFormatter = new Intl.DateTimeFormat("es-ES", {
