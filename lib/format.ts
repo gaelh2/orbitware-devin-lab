@@ -9,8 +9,9 @@ const dateFormatter = new Intl.DateTimeFormat("es-ES", {
   year: "numeric",
 });
 
-export function formatCurrency(amount: number): string {
-  return currencyFormatter.format(amount);
+export function formatCurrency(amount: number | string): string {
+  const numericAmount = typeof amount === "string" ? Number(amount.replace(",", ".")) : amount;
+  return currencyFormatter.format(numericAmount);
 }
 
 export function formatDate(date: Date | string): string {

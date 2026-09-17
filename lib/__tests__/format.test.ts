@@ -5,4 +5,8 @@ describe("formatCurrency", () => {
   it("formatea 100 MXN para es-MX", () => {
     expect(formatCurrency(100)).toBe("$100.00");
   });
+
+  it("formatea precios con coma decimal", () => {
+    expect(formatCurrency("89,90")).toBe("$89.90");
+  });
 });
